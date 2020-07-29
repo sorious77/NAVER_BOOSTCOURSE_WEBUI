@@ -325,3 +325,210 @@
      - 속성이며 값으로 병합할 셀의 개수를 사용
      - rowspan : 셀을 세로방향으로 병합
      - colspan : 셀을 가로방향으로 병합
+     
+     
+
+8. 폼 요소
+
+   - 폼 요소는 서버에 데이터를 전달하기 위한 요소
+
+   - \<input>
+
+     - 내용이 없는 빈 요소로 type 속성을 통해 여러 종류의 값을 입력 받음
+
+     - text 속성
+
+       ```html
+       <input type="text" placeholder="o o o">
+       ```
+
+       - 아이디, 이름, 주소, 전화번호 등 단순한 텍스트를 입력하기 위해 사용
+       - placeholder 속성을 통해 사용자의 입력 전, 텍스트 박스에 값을 표시
+
+       <input type="text" placeholder="o o o">
+
+       
+
+     - password 속성
+
+       ```html
+       <input type="password">
+       ```
+
+       - 암호와 같이 공개를 하면 안 되는 내용을 입력할 때 사용
+       - 텍스트 박스의 모양은 text 타입과 같지만, 실제로 값을 입력할 때는 값이 표시되지 않음
+
+       <input type="password">
+
+       
+
+     - radio 속성
+
+       ```html
+       <input type="radio" name="gender">남자
+       <input type="radio" name="gender">여자
+       ```
+
+       - 라디오 버튼을 만들 때 사용
+       - 라디오 버튼은 중복 선택이 불가능
+       - checked 속성 사용 가능
+
+       <input type="radio" name="gender">남자
+       <input type="radio" name="gender">여자
+
+       
+
+     - checkbox 속성
+
+       ```php+HTML
+       <input type="checkbox" name="fruit">사과
+       <input type="checkbox" name="fruit">오렌지
+       <input type="checkbox" name="fruit">바나나
+       ```
+
+       - 체크 박스를 만들 때 사용
+       - 체크 박스는 중복 선택이 가능
+       - checked 속성 사용 가능
+
+       <input type="checkbox" name="fruit">사과
+       <input type="checkbox" name="fruit">오렌지
+       <input type="checkbox" name="fruit">바나나
+
+       
+
+     - file 속성
+
+       ```html
+       <input type="file">
+       ```
+
+       - 파일을 서버에 올릴 때 사용
+
+       <input type="file">
+
+       
+
+     - submit, reset, image, button 속성
+
+       ```html
+       <input type="submit">
+       <input type="reset">
+       <input type="image" src="http://placehold.it/50x50?text=click" alt="click" width="50" height="50">
+       <input type="button">
+       ```
+
+       - 클릭 가능한 버튼을 생성
+       - submit : 값을 전송
+       - reset : 값을 초기화
+       - image : 이미지를 삽입할 수 있는 버튼
+         - src, alt 속성이 반드시 필요함
+       - button : 아무 기능이 없는 버튼 생성
+
+       <input type="submit">
+       <input type="reset">
+       <input type="image" src="http://placehold.it/50x50?text=click" alt="click" width="50" height="50">
+       <input type="button">
+
+       
+
+   - \<select>
+
+     ```html
+     <select>
+         <option>사과</option>
+         <option>오렌지</option>
+         <option>바나나</option>
+     </select>
+     ```
+
+     - 선택 목록을 표시
+     - multiple 속성을 사용하면 다중 선택 가능
+     - \<select> 내부의 \<option>으로 각 항목을 나타낼 수 있음
+       - \<option>의 속성으로 selected가 있으며, 선택된 항목을 의미
+
+     <select>
+         <option>사과</option>
+         <option>오렌지</option>
+         <option>바나나</option>
+     </select>
+
+     
+   - \<textarea>
+
+     ```html
+     <textarea rows="5" cols="30">
+     </textarea>
+     ```
+
+     - \<input type="text">는 한 줄만 입력이 가능하나, \<textarea>는 여러 줄의 텍스트를 입력받을 수 있음
+     - 텍스트 상자의 크기를 조절하기 위한 rows, cols 속성이 존재
+
+     <textarea rows="5" cols="30">
+     </textarea>
+
+     
+
+   - \<button>
+
+     ```html
+     <button type="submit|reset|button">버튼</button>
+     ```
+
+     - 버튼을 만들기 위해 사용
+     - submit, reset, button의 세 가지 타입이 존재
+     - 내용을 버튼 안에 직접 넣을 수 있음
+
+     <button type="button">버튼 내용</button>
+
+     
+
+   - \<label>
+
+     ```html
+     <label for="name">이름</label><input type="text" id="name">
+     ```
+
+     - form 요소의 이름과 form 요소를 연결하기 위해 사용, 모든 form 요소에 사용 가능
+     - label의 for 속성과 input의 id 속성값을 동일하게 생성
+     - label을 클릭하면 연결된 form을 클릭한 것과 동일한 효과 발생
+     - 각 form마다 label을 할당
+     - 사용성, 접근성에서 중요한 역할을 하기 때문에 반드시 명시
+
+     <label for="name">이름</label><input type="text" id="name">
+
+     
+
+   - \<fieldset>, \<legend>
+
+     ```html
+     <fieldset>
+         <legend>
+             정보
+         </legend>
+         ... 폼 ...
+     </fieldset>
+     ```
+
+     - \<fieldset> : 여러 폼 요소를 그룹화하여 구조적으로 만들기 위해 사용
+
+     - \<legend> : 폼 요소의 제목으로, \<fieldset> 내부에 가장 먼저 작성
+
+       
+
+   - \<form>
+
+     ```html
+     <form action="" method"">
+         <fieldset>
+             <legend>
+                 정보
+             </legend>
+             ... 폼...
+         </fieldset>
+     </form>
+     ```
+
+     - action : 데이터를 처리하기 위한 서버의 주소
+     - method : 데이터 전송 방식
+       - get : 주소창에 파라미터 형태로 추가되어 데이터가 노출됨
+       - post : 데이터가 노출되지 않음
